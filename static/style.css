@@ -1,0 +1,13 @@
+/* Optional: small tweaks on top of Lux theme */
+
+body {
+    padding-bottom: 60px;
+}
+
+.card ul {
+    padding-left: 1.25rem;
+}
+
+footer {
+    position: relative;
+}

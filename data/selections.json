@@ -1,0 +1,14 @@
+[
+    {
+        "drink_type": "iced_coffee",
+        "flavor": "Vanilla",
+        "recipe_title": "Vanilla Iced Coffee",
+        "timestamp": "2025-12-04T13:40:32"
+    },
+    {
+        "drink_type": "latte_hot",
+        "flavor": "Caramel",
+        "recipe_title": "Caramel Hot Latte",
+        "timestamp": "2025-12-04T13:42:17"
+    }
+]

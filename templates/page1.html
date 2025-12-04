@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="mb-4">Customize Your Coffee</h2>
+
+  <form method="POST" class="row g-3 mb-4">
+    <div class="col-md-6">
+      <label for="drink_type" class="form-label">Coffee Type</label>
+      <select id="drink_type" name="drink_type" class="form-select" required>
+        <option value="" disabled selected>Select a coffee</option>
+        <option value="drip">Drip Coffee</option>
+        <option value="iced_coffee">Iced Coffee</option>
+        <option value="latte_hot">Latte (Hot)</option>
+        <option value="latte_iced">Latte (Iced)</option>
+        <option value="cortado">Cortado</option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label for="flavor" class="form-label">Flavor</label>
+      <select id="flavor" name="flavor" class="form-select" required>
+        {% for flavor in flavors %}
+          <option value="{{ flavor }}">{{ flavor }}</option>
+        {% endfor %}
+      </select>
+      <div class="form-text">Choose "None" if you prefer no flavored syrup.</div>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Create Recipe</button>
+    </div>
+  </form>
+
+  {% if custom_recipe %}
+    <hr>
+    <h3 class="mt-4">{{ custom_recipe.title }}</h3>
+
+    <h5>Ingredients</h5>
+    <ul>
+      {% for item in custom_recipe.ingredients %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+
+    <h5>Steps</h5>
+    <ol>
+      {% for step in custom_recipe.steps %}
+        <li>{{ step }}</li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+{% endblock %}

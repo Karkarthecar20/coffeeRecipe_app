@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row mb-4">
+    <div class="col-md-8">
+      <h1 class="mb-3">Coffee Recipe Dashboard</h1>
+      <p class="lead">
+        Explore simple recipes for drip coffee, iced coffee, lattes, and cortados.
+        Customize your drink with flavors like vanilla, caramel, hazelnut, or mocha.
+      </p>
+      <a href="{{ url_for('customize') }}" class="btn btn-primary btn-lg">
+        Customize a Coffee
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    {% for key, recipe in base_recipes.items() %}
+      <div class="col-md-4 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ recipe.name }}</h5>
+            <p class="card-text">
+              Example ingredients:
+            </p>
+            <ul>
+              {% for item in recipe.ingredients[:2] %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="mb-4">Saved Coffee Selections</h2>
+
+  {% if selections %}
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Coffee Type</th>
+            <th scope="col">Flavor</th>
+            <th scope="col">Recipe Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entry in selections %}
+            <tr>
+              <td>{{ entry.timestamp if entry.timestamp else entry["timestamp"] }}</td>
+              <td>
+                {% set key = entry.drink_type if entry.drink_type is defined else entry["drink_type"] %}
+                {% if base_recipes.get(key) %}
+                  {{ base_recipes[key].name }}
+                {% else %}
+                  {{ key }}
+                {% endif %}
+              </td>
+              <td>{{ entry.flavor if entry.flavor is defined else entry["flavor"] }}</td>
+              <td>{{ entry.recipe_title if entry.recipe_title is defined else entry["recipe_title"] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p>No selections have been saved yet. Create one on the
+      <a href="{{ url_for('customize') }}">Customize Coffee</a> page.</p>
+  {% endif %}
+{% endblock %}
