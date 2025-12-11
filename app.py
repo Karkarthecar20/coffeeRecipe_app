@@ -1,7 +1,7 @@
 import os
 import json
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for, flash
+from Flask import Flask, render_template, request, redirect, url_for, flash
 
 app = Flask(__name__)
 app.secret_key = "change-me-in-production"  # needed for flash messages
