@@ -10,5 +10,17 @@
         "flavor": "Caramel",
         "recipe_title": "Caramel Hot Latte",
         "timestamp": "2025-12-04T13:42:17"
+    },
+    {
+        "drink_type": "drip",
+        "flavor": "None",
+        "recipe_title": "Drip Coffee",
+        "timestamp": "2025-12-11T15:08:02"
+    },
+    {
+        "drink_type": "cortado",
+        "flavor": "Vanilla",
+        "recipe_title": "Vanilla Cortado",
+        "timestamp": "2025-12-11T15:08:13"
     }
 ]
